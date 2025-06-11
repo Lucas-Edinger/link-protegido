@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Dia dos Namorados 💖</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 30px;
+    }
+    #mensagem {
+      display: none;
+      color: #d1005d;
+      font-size: 1.3em;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    #countdown {
+      font-size: 1.8em;
+      margin-top: 20px;
+      color: #444;
+    }
+    img {
+      max-width: 300px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+    iframe {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💝 Uma surpresa está quase pronta...</h1>
+  <div id="countdown"></div>
+
+  <div id="mensagem">
+    <p>Sou imensamente grato por ter te conhecido. Ter você na minha vida é um presente que celebro todos os dias, mas hoje especialmente, quero agradecer por tudo o que vivemos até aqui.</p>
+    <p>Obrigado por todos esses anos ao seu lado, por cada risada compartilhada, por cada momento de carinho, por cada palavra de apoio e por todo o amor que você me dá de tantas formas diferentes.</p>
+    <p>Também agradeço pelos momentos difíceis, pelas crises que enfrentamos juntos e pelas vezes em que, mesmo cansados, escolhemos continuar. Porque foi assim, juntos, que nos tornamos ainda mais fortes.</p>
+    <p>Você é meu companheiro, meu porto seguro e meu motivo diário de gratidão. Que venham muitos outros capítulos dessa história linda que estamos construindo.</p>
+    <p>Te amo ♥️</p>
+
+    <div>
+      <img src="https://memoryiit.s3.us-east-2.amazonaws.com/TMP_IMAGES/ed2f41e1-2b9e-4ca3-b810-effecc240f96.jpeg">
+      <img src="https://memoryiit.s3.us-east-2.amazonaws.com/TMP_IMAGES/62c75d10-7f55-430e-a130-c30102c31cee.jpeg">
+      <img src="https://memoryiit.s3.us-east-2.amazonaws.com/TMP_IMAGES/1ef2eee9-af46-4459-aecd-6a2bade9b6b0.jpeg">
+      <img src="https://memoryiit.s3.us-east-2.amazonaws.com/TMP_IMAGES/1f5d2ce9-e665-48cc-b5ff-64188168f9a7.jpeg">
+      <img src="https://memoryiit.s3.us-east-2.amazonaws.com/TMP_IMAGES/76e30ba8-099c-46ea-868e-0af296458085.jpeg">
+    </div>
+
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7h9BkPljkGtZ7I0zD5PEcY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <script>
+    const mensagem = document.getElementById("mensagem");
+    const countdown = document.getElementById("countdown");
+
+    const now = new Date();
+    const year = now.getFullYear();
+    const targetDate = new Date(`${year}-06-12T00:00:00`);
+
+    function atualizarContagem() {
+      const agora = new Date();
+      const diferenca = targetDate - agora;
+
+      if (diferenca <= 0) {
+        countdown.style.display = "none";
+        mensagem.style.display = "block";
+      } else {
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diferenca / 1000 / 60) % 60);
+        const segundos = Math.floor((diferenca / 1000) % 60);
+
+        countdown.innerHTML = `Faltam ${dias} dias, ${horas}h ${minutos}min ${segundos}s`;
+
+        setTimeout(atualizarContagem, 1000);
+      }
+    }
+
+    atualizarContagem();
+  </script>
+
+</body>
+</html>
